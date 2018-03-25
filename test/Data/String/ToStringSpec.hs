@@ -33,3 +33,8 @@ spec = do
       let expect = "hello"
           actual = toString ("hello" :: BS.Lazy.Char8.ByteString)
       actual `shouldBe` expect
+    
+    it "T.Text => String" $ do
+      let expect = "hello"
+          actual = toString ("hello" :: T.Text)
+      actual `shouldBe` expect
