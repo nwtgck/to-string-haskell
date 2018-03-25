@@ -26,7 +26,7 @@ toString ("I'm a Text" :: T.Text) == ("I'm a Text" :: String)
 
 ## Supported String-like types
 
-
+* `String`
 * `Data.ByteString.Char8.ByteString`
 * `Data.ByteString.Lazy.Char8.ByteString`
 * `Data.ByteString.Short.ShortByteString`
