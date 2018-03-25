@@ -10,6 +10,7 @@ import Data.String
 import qualified Data.ByteString.Char8 as BS.Char8
 import qualified Data.ByteString.Lazy.Char8 as BS.Lazy.Char8
 import qualified Data.ByteString.UTF8 as BS.UTF8
+import qualified Data.ByteString.Lazy.UTF8 as BS.Lazy.UTF8
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as T.Lazy
 
@@ -39,6 +40,11 @@ spec = do
     it "BS.UTF8.ByteString => String" $ do
       let expect = "hello"
           actual = toString ("hello" :: BS.UTF8.ByteString)
+      actual `shouldBe` expect
+    
+    it "BS.Lazy.UTF8.ByteString => String" $ do
+      let expect = "hello"
+          actual = toString ("hello" :: BS.Lazy.UTF8.ByteString)
       actual `shouldBe` expect
 
     it "T.Text => String" $ do
