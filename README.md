@@ -3,6 +3,18 @@
 
 A `toString` converter for String-like types and any `Show a => a` type.
 
+## Installation
+
+Add this library to `extra-deps` in your `stack.yaml` like the following if you use [Stack](https://docs.haskellstack.org/en/stable/README/).
+
+```yaml
+...
+extra-deps: 
+- git: git@github.com:nwtgck/to-string-haskell.git
+  commit: b593368f93bcc47d2fa354590b5298e4b3906f33
+...
+```
+
 ## Usages
 
 ```hs
