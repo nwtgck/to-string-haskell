@@ -13,8 +13,8 @@
 
 module Data.String.ToString where
 
-import qualified Data.ByteString.Lazy.Char8 as Char8LB
-import qualified Data.ByteString as BS
+import qualified Data.ByteString.Char8 as BS.Char8
+import qualified Data.ByteString.Lazy.Char8 as BS.Lazy.Char8
 
 -- Type equality
 -- (from: https://stackoverflow.com/a/25119516/2885946)
@@ -32,12 +32,16 @@ class ToString a where
 instance ToString String where
   toString = id
 
-instance ToString Char8LB.ByteString where
-  toString = Char8LB.unpack
+instance ToString BS.Char8.ByteString where
+  toString = BS.Char8.unpack
+
+instance ToString BS.Lazy.Char8.ByteString where
+  toString = BS.Lazy.Char8.unpack
 
 -- (All Show instances can be ToString)
 instance ( Show a
          , TypeNeq a String
-         , TypeNeq a Char8LB.ByteString
+         , TypeNeq a BS.Char8.ByteString         
+         , TypeNeq a BS.Lazy.Char8.ByteString
          ) => ToString a where
   toString = show 

@@ -7,7 +7,8 @@ import Test.Hspec.QuickCheck
 import Test.QuickCheck
 
 import Data.String
-import qualified Data.ByteString.Lazy.Char8 as Char8LB
+import qualified Data.ByteString.Char8 as BS.Char8
+import qualified Data.ByteString.Lazy.Char8 as BS.Lazy.Char8
 import qualified Data.Text as T
 
 import Data.String.ToString
@@ -22,8 +23,13 @@ spec = do
       let expect = "hello"
           actual = toString ("hello" :: String)
       actual `shouldBe` expect
-
-    it "Char8LB.ByteString => String" $ do
+    
+    it "BS.Char8.ByteString => String" $ do
       let expect = "hello"
-          actual = toString ("hello" :: Char8LB.ByteString)
+          actual = toString ("hello" :: BS.Char8.ByteString)
+      actual `shouldBe` expect
+
+    it "BS.Lazy.Char8.ByteString => String" $ do
+      let expect = "hello"
+          actual = toString ("hello" :: BS.Lazy.Char8.ByteString)
       actual `shouldBe` expect
