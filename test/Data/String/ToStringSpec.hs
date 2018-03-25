@@ -9,8 +9,11 @@ import Test.QuickCheck
 import Data.String
 import qualified Data.ByteString.Char8 as BS.Char8
 import qualified Data.ByteString.Lazy.Char8 as BS.Lazy.Char8
+import qualified Data.ByteString.Short as BS.Short
+
 import qualified Data.ByteString.UTF8 as BS.UTF8
 import qualified Data.ByteString.Lazy.UTF8 as BS.Lazy.UTF8
+
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as T.Lazy
 
@@ -35,6 +38,11 @@ spec = do
     it "BS.Lazy.Char8.ByteString => String" $ do
       let expect = "hello"
           actual = toString ("hello" :: BS.Lazy.Char8.ByteString)
+      actual `shouldBe` expect
+  
+    it "BS.Short.ShortByteString => String" $ do
+      let expect = "hello"
+          actual = toString ("hello" :: BS.Short.ShortByteString)
       actual `shouldBe` expect
       
     it "BS.UTF8.ByteString => String" $ do
