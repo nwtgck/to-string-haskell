@@ -15,8 +15,8 @@ Add this library to `extra-deps` in your `stack.yaml` like the following if you 
 ```yaml
 ...
 extra-deps: 
-- git: git@github.com:nwtgck/to-string-haskell.git
-  commit: b593368f93bcc47d2fa354590b5298e4b3906f33
+- git: https://github.com/nwtgck/to-string-haskell.git
+  commit: 0c8f2951606e185feacddb28983b30c527c3eb17
 ...
 ```
 
