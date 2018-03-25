@@ -1,32 +1,27 @@
 # to-string
 [![Build Status](https://travis-ci.com/nwtgck/to-string-haskell.svg?token=TuxNpqznwwyy7hyJwBVm&branch=master)](https://travis-ci.com/nwtgck/to-string-haskell)
 
-A `toString` converter for String-like types and any type which is `Show a => a`.
+A `toString` converter for String-like types and any `Show a => a` type.
 
 ## Usages
 
 ```hs
-toString 89
--- => "89"
+toString 89 == "89"
 ```
 
 ```hs
-toString "hello"
--- => "hello"
+toString "hello" == "hello"
+```
+
+```hs
+{-# LANGUAGE OverloadedStrings #-}
+toString ("I'm a ByteString" :: BS.ByteString) == ("I'm a ByteString" :: String)
 ```
 
 ```hs
 {-# LANGUAGE OverloadedStrings #-}
 
-toString ("I'm ByteString" :: BS.ByteString)
--- => "I'm ByteString"
-```
-
-```hs
-{-# LANGUAGE OverloadedStrings #-}
-
-toString ("I'm Text" :: T.Text)
--- => "I'm Text"
+toString ("I'm a Text" :: T.Text) == ("I'm a Text" :: String)
 ```
 
 ## Supported String-like types
@@ -86,4 +81,14 @@ main = do
       text = "I'm a Text!"
   print (toString text)
   -- => "I'm a Text!"
+```
+
+### Output
+
+```txt
+"10"
+"'d'"
+"MyJust 1.89"
+"I'm a ByteString!"
+"I'm a Text!"
 ```
