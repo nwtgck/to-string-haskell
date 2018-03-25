@@ -16,6 +16,7 @@ module Data.String.ToString where
 import qualified Data.ByteString.Char8 as BS.Char8
 import qualified Data.ByteString.Lazy.Char8 as BS.Lazy.Char8
 import qualified Data.Text as T
+import qualified Data.Text.Lazy as T.Lazy
 
 -- Type equality
 -- (from: https://stackoverflow.com/a/25119516/2885946)
@@ -42,11 +43,15 @@ instance ToString BS.Lazy.Char8.ByteString where
 instance ToString T.Text where
   toString = T.unpack
 
+instance ToString T.Lazy.Text where
+  toString = T.Lazy.unpack
+
 -- (All Show instances can be ToString)
 instance ( Show a
          , TypeNeq a String
          , TypeNeq a BS.Char8.ByteString         
          , TypeNeq a BS.Lazy.Char8.ByteString
-         , TypeNeq a T.Text         
+         , TypeNeq a T.Text
+         , TypeNeq a T.Lazy.Text
          ) => ToString a where
   toString = show 

@@ -10,6 +10,7 @@ import Data.String
 import qualified Data.ByteString.Char8 as BS.Char8
 import qualified Data.ByteString.Lazy.Char8 as BS.Lazy.Char8
 import qualified Data.Text as T
+import qualified Data.Text.Lazy as T.Lazy
 
 import Data.String.ToString
 
@@ -37,4 +38,9 @@ spec = do
     it "T.Text => String" $ do
       let expect = "hello"
           actual = toString ("hello" :: T.Text)
+      actual `shouldBe` expect
+    
+    it "T.Lazy.Text => String" $ do
+      let expect = "hello"
+          actual = toString ("hello" :: T.Lazy.Text)
       actual `shouldBe` expect
