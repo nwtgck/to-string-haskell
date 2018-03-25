@@ -40,3 +40,5 @@ install:
 script:
  # Test
  - stack test
+ # Working-test of the example
+ - stack build && stack exec to-string-example

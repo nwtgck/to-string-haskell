@@ -45,3 +45,19 @@ tests:
     - bytestring
     - text
     - utf8-string
+
+executables:
+  to-string-example:
+    main:                Main.hs
+    source-dirs:         example
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Werror=missing-fields
+    - -Werror=incomplete-patterns
+    dependencies:
+     - to-string
+     - bytestring
+     - text
+     - utf8-string
