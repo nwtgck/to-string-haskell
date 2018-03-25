@@ -4,7 +4,7 @@ A `toString` converter for String-like types and any `Show a => a` type.
 
 | branch | Travis status|
 | --- | --- |
-| [`master`](https://github.com/nwtgck/to-string-haskell/tree/master) | [[![Build Status](https://travis-ci.org/nwtgck/to-string-haskell.svg?branch=master)](https://travis-ci.org/nwtgck/to-string-haskell) |
+| [`master`](https://github.com/nwtgck/to-string-haskell/tree/master) | [![Build Status](https://travis-ci.org/nwtgck/to-string-haskell.svg?branch=master)](https://travis-ci.org/nwtgck/to-string-haskell) |
 | [`develop`](https://github.com/nwtgck/to-string-haskell/tree/develop) | [![Build Status](https://travis-ci.org/nwtgck/to-string-haskell.svg?branch=develop)](https://travis-ci.org/nwtgck/to-string-haskell) |
 
 
