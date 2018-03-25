@@ -22,9 +22,35 @@ import Data.String.ToString
 main :: IO ()
 main = hspec spec
 
+data MyType =
+    MyData1 Int String
+  | MyData2 Double
+  | MyData3 Char MyType
+  deriving Show
+
 spec :: Spec
 spec = do
   describe "toString" $ do
+
+    it "Int => String" $ do
+      let expect = show 1818
+          actual = toString (1818 :: Int)
+      actual `shouldBe` expect
+
+    it "Char => String" $ do
+      let expect = show 'f'
+          actual = toString ('f' :: Char)
+      actual `shouldBe` expect
+    
+    it "Float => String" $ do
+      let expect = show 5.28
+          actual = toString (5.28 :: Float)
+      actual `shouldBe` expect
+
+    it "MyType => String" $ do
+      let mydata1 = MyData1 3366 "sample text1"
+      toString mydata1 `shouldBe` show mydata1
+
     it "String => String" $ do
       let expect = "hello"
           actual = toString ("hello" :: String)
