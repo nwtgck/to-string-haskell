@@ -46,8 +46,8 @@ So `Int`, `Double`, `Maybe a` ... which are `Show` instances are also instances 
 {-# LANGUAGE OverloadedStrings #-}
 
 import Data.String.ToString
-import Data.ByteString
-import Data.Text
+import qualified Data.ByteString as BS
+import qualified Data.Text as T
 
 -- (This is an orignal type deriving `Show`)
 data MyMaybe a = 
@@ -59,36 +59,36 @@ main :: IO ()
 main = do
   let i :: Int
       i = 10
-  print (toString i)
-  -- => "10"
+  putStrLn (toString i)
+  -- => 10
 
   let ch :: Char
       ch = 'd'
-  print (toString ch)
-  -- => "'d'"
+  putStrLn (toString ch)
+  -- => 'd'
 
   let myMay1 :: MyMaybe Double
       myMay1 = MyJust 1.89 
-  print (toString myMay1)
-  -- => "MyJust 1.89"
+  putStrLn (toString myMay1)
+  -- => MyJust 1.89
 
-  let bs :: ByteString
+  let bs :: BS.ByteString
       bs = "I'm a ByteString!"
-  print (toString bs)
-  -- => "I'm a ByteString!"
+  putStrLn (toString bs)
+  -- => I'm a ByteString!
 
-  let text :: Text
+  let text :: T.Text
       text = "I'm a Text!"
-  print (toString text)
-  -- => "I'm a Text!"
+  putStrLn (toString text)
+  -- => I'm a Text!
 ```
 
 ### Output
 
 ```txt
-"10"
-"'d'"
-"MyJust 1.89"
-"I'm a ByteString!"
-"I'm a Text!"
+10
+'d'
+MyJust 1.89
+I'm a ByteString!
+I'm a Text!
 ```
