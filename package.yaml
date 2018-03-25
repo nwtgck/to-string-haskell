@@ -27,6 +27,7 @@ library:
  dependencies:
  - bytestring
  - text
+ - utf8-string
 
 
 tests:
@@ -43,3 +44,4 @@ tests:
     - QuickCheck
     - bytestring
     - text
+    - utf8-string
